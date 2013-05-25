@@ -16,6 +16,8 @@ gem 'better_errors'
 gem 'rspec-rails'
 gem 'binding_of_caller'
 
+gem 'twitter-bootstrap-rails'
+
 group :doc do
   gem 'sdoc', require: false
 end
