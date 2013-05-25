@@ -1,33 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%= render :partial => 'layouts/head_element' %></head>
-  <body>
-    <%= render :partial => 'layouts/header' %>
+<head>
+  <%= render :partial => 'layouts/head_element' %></head>
+<body>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span9">
-          <%= bootstrap_flash %>
-          <%= yield %>
-        </div>
-      </div><!--/row-->
-    </div> <!-- /container -->
+<%= render :partial => 'layouts/header' %>
 
-    <!-- Javascripts
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <%= javascript_include_tag "application" %>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <%= bootstrap_flash %>
+    <div class="text-center muted">
+      <em>
+        <p>Prospector is the next generation platform for any sales organization that needs to find target customers and
+          their contact information.</p>
+        <p>All the tools on this site are designed to take the frustration and time out of finding
+          targets</p>
+      </em>
+    </div>
+    <%= yield %>
+  </div>
+</div>
 
-  </body>
+<%= javascript_include_tag "application" %>
+
+</body>
 </html>
