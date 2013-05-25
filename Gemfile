@@ -18,9 +18,10 @@ gem 'rspec-rails'
 gem 'binding_of_caller'
 
 gem 'twitter-bootstrap-rails'
-
 gem 'angularjs_scaffold'
+
 gem 'mechanize'
+gem 'google-search'
 
 group :doc do
   gem 'sdoc', require: false

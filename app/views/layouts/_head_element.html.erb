@@ -6,11 +6,12 @@
 <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+
 <![endif]-->
 
 <%= stylesheet_link_tag "application", media: "all" %>
 <%= javascript_include_tag "application" %>
-<meta id='csrf' ng-controller="CsrfCtrl" data-csrf="<%= form_authenticity_token%>">
+<meta id='csrf' ng-controller="CsrfCtrl" data-csrf="<%= form_authenticity_token %>">
 
 <!-- <link href="assets/favicon.ico" rel="shortcut icon"> -->
 <link href="images/apple-touch-icon.png" rel="apple-touch-icon">

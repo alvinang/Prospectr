@@ -1,8 +1,26 @@
-<div class="row-fluid well">
-  <div class="span6">
-    <%= render :partial => 'company_search_form' %>
+<div ng-controller="HomeCtrl">
+  <div class="row-fluid">
+    <div class="well clearfix">
+      <div class="span6">
+        <%= render :partial => 'company_search_form' %>
+      </div>
+      <div class="span6">
+        <%= render :partial => 'email_address_verification_form' %>
+      </div>
+    </div>
   </div>
-  <div class="span6">
-    <%= render :partial => 'email_address_verification_form' %>
+
+  <div class="row-fluid">
+    <div class="span6">
+      <div class="media-object" ng-repeat="result in results">
+        <div class="media-body">
+          <h4><a href="{{result.uri}}" ng-bind-html-unsafe="result.title"></a></h4>
+          <p class="text-success">
+            <small>{{result.visible_uri}}</small>
+          </p>
+          <p ng-bind-html-unsafe="result.content"></p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
