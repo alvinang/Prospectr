@@ -22,6 +22,7 @@ gem 'angularjs_scaffold'
 
 gem 'mechanize'
 gem 'google-search'
+gem 'twitter'
 
 group :doc do
   gem 'sdoc', require: false
