@@ -18,8 +18,8 @@ gem 'rspec-rails'
 gem 'binding_of_caller'
 
 gem 'twitter-bootstrap-rails'
-gem 'angularjs_scaffold'
 
+gem 'angularjs_scaffold'
 gem 'mechanize'
 
 group :doc do

@@ -1,15 +1,7 @@
 root = global ? window
 angular = root.angular
 
-thisApp = angular.module("ProspectorClient", ['ngCookies']).config(['$routeProvider', '$locationProvider' , 
-($routeProvider, $locationProvider) ->
-  #$locationProvider.hashPrefix('');
-  $locationProvider.html5Mode true
-  $routeProvider.when("/",
-    controller: "WelcomeCtrl"
-    templateUrl: "<%= asset_path('welcome/index.html') %>"
-  ).otherwise redirectTo: "/"
-])
+thisApp = angular.module("ProspectorClient", ['ngCookies']).config(['$routeProvider', '$locationProvider'])
 
 root.thisApp = thisApp
 
