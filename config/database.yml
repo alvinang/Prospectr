@@ -34,6 +34,6 @@ production:
   encoding: utf8
   database: prospector_production
   pool: 5
-  username: root
+  username: david_rails
   password: kwanleong
   socket: /tmp/mysql.sock
