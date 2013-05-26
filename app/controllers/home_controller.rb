@@ -45,4 +45,26 @@ class HomeController < ApplicationController
       format.json {render json: @results.to_json}
     end
   end
+
+  def email_format_search
+    @query = params[:query]
+    url = "http://www.email-format.com/d/#{@query}"
+    email_regex = /([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})/
+
+    mechanize = Mechanize.new
+    page = mechanize.get url
+
+    @results = []
+
+    document = Nokogiri::HTML page.body
+    document.css("#domain_adress_container .li_email").each do |li|
+      @results << li.content.match(email_regex)[0]
+    end
+
+    respond_to do |format|
+      format.json {render json: @results.to_json}
+    end
+  end
+
+
 end

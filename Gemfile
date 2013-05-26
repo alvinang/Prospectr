@@ -23,6 +23,7 @@ gem 'angularjs_scaffold'
 gem 'mechanize'
 gem 'google-search'
 gem 'twitter'
+gem 'nokogiri'
 
 group :doc do
   gem 'sdoc', require: false

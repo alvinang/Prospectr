@@ -9,12 +9,14 @@ HomeCtrl = ($scope, $http) ->
   $scope.twitterSearchResultsLoaded = true
   $scope.linkedInResultsLoaded = true
   $scope.googleNewsFeedResultsLoaded = true
+  $scope.emailFormatSearchResultsLoaded = true
 
   $scope.search = ->
     console.log "searching"
     $scope.twitterSearchResultsLoaded = false
     $scope.linkedInResultsLoaded = false
     $scope.googleNewsFeedResultsLoaded = false
+    $scope.emailFormatSearchResultsLoaded = false
 
     $http(
       url: "/home/linked_in_search?query=" + $scope.company
@@ -36,6 +38,13 @@ HomeCtrl = ($scope, $http) ->
     ).success (data, status, headers, config) ->
       $scope.twitterSearchResults = data
       $scope.twitterSearchResultsLoaded = true
+
+    $http(
+      url: "/home/email_format_search?query=" + $scope.company
+      method: "GET"
+    ).success (data, status, headers, config) ->
+      $scope.emailFormatSearchResults = data
+      $scope.emailFormatSearchResultsLoaded = true
 
 
 HomeCtrl.$inject = ['$scope', "$http"];
