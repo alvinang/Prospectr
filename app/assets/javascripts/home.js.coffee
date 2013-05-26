@@ -12,7 +12,6 @@ HomeCtrl = ($scope, $http) ->
   $scope.emailFormatSearchResultsLoaded = true
 
   $scope.search = ->
-    console.log "searching"
     $scope.twitterSearchResultsLoaded = false
     $scope.linkedInResultsLoaded = false
     $scope.googleNewsFeedResultsLoaded = false
