@@ -11,7 +11,7 @@ class HomeController < ApplicationController
       @description = params[:description]
     end
 
-    google_query = '"' + @description + '" "'+ @query +'" -inurl:/dir/ -inurl:/find/ -inurl:/updates site:linkedin.com'
+    google_query = '"' + @description + '" "at '+ @query +'" -inurl:/dir/ -inurl:/find/ -inurl:/updates site:linkedin.com'
 
     logger.info "Google Query : #{google_query}"
 
