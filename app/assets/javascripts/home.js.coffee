@@ -18,7 +18,7 @@ HomeCtrl = ($scope, $http) ->
     $scope.emailFormatSearchResultsLoaded = false
 
     $http(
-      url: "/home/linked_in_search?query=" + $scope.company
+      url: "/home/linked_in_search?query=" + $scope.company + '&description=' + $scope.job_title
       method: "GET"
     ).success (data, status, headers, config) ->
       $scope.linkedInResults = data
