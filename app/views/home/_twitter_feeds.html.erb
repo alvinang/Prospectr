@@ -16,7 +16,7 @@
         </a>
       </div>
       <div id="{{result.screen_name}}_collapse" class="accordion-body collapse in">
-        <table class="table table-bordered table-striped">
+        <table class="table table-striped table-hover">
           <tr ng-repeat="tweet in screen_names[result.screen_name]">
             <td ng-bind-html-unsafe="tweet.text"></td>
           </tr>
