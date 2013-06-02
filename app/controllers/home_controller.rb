@@ -1,3 +1,5 @@
+require 'ostruct'
+
 class HomeController < ApplicationController
   def index
 
@@ -43,14 +45,21 @@ class HomeController < ApplicationController
 
   def twitter_search
     @query = params[:query]
-    @results = Twitter.search(@query, lang: "en").results.collect do |result|
-      result
-    end
-
-    @results = @results.in_groups_of(10).first
+    @users = Twitter.user_search(@query, lang: "en")
 
     respond_to do |format|
-      format.json { render json: @results.to_json }
+      format.json { render json: @users.to_json }
+    end
+  end
+
+  def twitter_timeline_search
+    Twitter.connection_options = {:timeout => 30, :open_timeout => 2}
+
+    @screen_name = params[:screen_name]
+    @tweets = Twitter.user_timeline(@screen_name)
+
+    respond_to do |format|
+      format.json { render json: @tweets.to_json }
     end
   end
 

@@ -11,6 +11,26 @@ HomeCtrl = ($scope, $http) ->
   $scope.googleNewsFeedResultsLoaded = true
   $scope.emailFormatSearchResultsLoaded = true
 
+  $scope.timeline = (screen_name) ->
+    $http(
+      url: "/home/twitter_timeline_search?screen_name=" + screen_name
+      method: "GET"
+    ).success (data, status, headers, config) ->
+      $scope.screen_names[screen_name] = data
+
+  $scope.initialize_screen_name = (screen_name) ->
+    $scope.screen_names[screen_name] = new Array()
+
+  $scope.fetch_timelines = (results) ->
+    $scope.screen_names = {}
+
+    for result in results
+      console.log result.screen_name
+      console.log result.toString
+      $scope.initialize_screen_name(result.screen_name)
+    for result in results
+      $scope.timeline(result.screen_name)
+
   $scope.search = ->
     $scope.twitterSearchResultsLoaded = false
     $scope.linkedInResultsLoaded = false
@@ -35,8 +55,10 @@ HomeCtrl = ($scope, $http) ->
       url: "/home/twitter_search?query=" + $scope.company
       method: "GET"
     ).success (data, status, headers, config) ->
+      $scope.fetch_timelines(data)
       $scope.twitterSearchResults = data
       $scope.twitterSearchResultsLoaded = true
+
 
     $http(
       url: "/home/email_format_search?query=" + $scope.company

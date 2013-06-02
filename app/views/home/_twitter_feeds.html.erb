@@ -1,0 +1,28 @@
+<h4 class="text-center alert alert-info">Twitter Feeds</h4>
+
+<div ng-hide="twitterSearchResultsLoaded" class="text-center">
+  <p><%= image_tag 'progress-indeterminate-light.gif' %></p>
+
+  <p class="muted">
+    <small>This will only take a second</small>
+  </p>
+</div>
+<div ng-show="twitterSearchResultsLoaded" ng-repeat="result in twitterSearchResults">
+  <div class="accordion" id="{{result.screen_name}}">
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#{{result.screen_name}}" href="#{{result.screen_name}}_collapse">
+          <%= render :partial => 'home/twitter/banner' %>
+        </a>
+      </div>
+      <div id="{{result.screen_name}}_collapse" class="accordion-body collapse in">
+        <table class="table table-bordered table-striped">
+          <tr ng-repeat="tweet in screen_names[result.screen_name]">
+            <td ng-bind-html-unsafe="tweet.text"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

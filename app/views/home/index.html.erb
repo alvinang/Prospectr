@@ -55,23 +55,7 @@
       </div>
     </div>
     <div class="span4">
-      <h4 class="text-center alert alert-info">Twitter Feeds</h4>
-
-      <div ng-hide="twitterSearchResultsLoaded" class="text-center">
-        <p><%= image_tag 'progress-indeterminate-light.gif' %></p>
-
-        <p class="muted">
-          <small>This will only take a second</small>
-        </p>
-      </div>
-      <div ng-show="twitterSearchResultsLoaded" class="media-object" ng-repeat="result in twitterSearchResults">
-        <div class="media-body">
-          <h4>{{result.user.name}}
-            <small>@{{result.user.screen_name}}</small>
-          </h4>
-          <p ng-bind-html-unsafe="result.text"></p>
-        </div>
-      </div>
+      <%= render :partial => 'twitter_feeds' %>
     </div>
   </div>
   <div class="row-fluid">
