@@ -16,7 +16,7 @@ gem 'jbuilder', '~> 1.0.1'
 gem 'better_errors'
 gem 'rspec-rails'
 gem 'binding_of_caller'
-gem "coffee-script-redux-debugger", :git => "git://github.com/JetBrains/coffee-script-redux-debugger.git"
+#gem "coffee-script-redux-debugger", :git => "git://github.com/JetBrains/coffee-script-redux-debugger.git"
 
 gem 'twitter-bootstrap-rails'
 gem 'angularjs_scaffold'
