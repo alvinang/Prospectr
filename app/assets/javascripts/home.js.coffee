@@ -12,14 +12,25 @@ HomeCtrl = ($scope, $http) ->
   $scope.emailFormatSearchResultsLoaded = true
 
   $scope.timeline = (screen_name) ->
-    $http(
+    timeline_call = $http(
       url: "/home/twitter_timeline_search?screen_name=" + screen_name
       method: "GET"
-    ).success (data, status, headers, config) ->
-      $scope.screen_names[screen_name] = data
+    )
+
+    timeline_call.success (data, status, headers, config) ->
+      $scope.screen_names[screen_name] =
+        data: data
+        status: status
+
+    timeline_call.error (data, status, header, config) ->
+      $scope.screen_names[screen_name] =
+        data: data
+        status: status
 
   $scope.initialize_screen_name = (screen_name) ->
-    $scope.screen_names[screen_name] = new Array()
+    $scope.screen_names[screen_name] =
+      data: new Array()
+      status: 'None'
 
   $scope.fetch_timelines = (results) ->
     $scope.screen_names = {}
@@ -42,6 +53,9 @@ HomeCtrl = ($scope, $http) ->
       method: "GET"
     ).success (data, status, headers, config) ->
       $scope.linkedInResults = data
+      $scope.linkedInFeedResultsPages = 6
+      $scope.linkedInFeedResultsPageSize = 10
+      $scope.linkedInFeedResultsCurrentPage = 1
       $scope.linkedInResultsLoaded = true
 
     $http(
@@ -49,6 +63,9 @@ HomeCtrl = ($scope, $http) ->
       method: "GET"
     ).success (data, status, headers, config) ->
       $scope.googleNewsFeedResults = data
+      $scope.googleNewsFeedResultsPages = 6
+      $scope.googleNewsFeedResultsPageSize = 10
+      $scope.googleNewsFeedResultsCurrentPage = 1
       $scope.googleNewsFeedResultsLoaded = true
 
     $http(

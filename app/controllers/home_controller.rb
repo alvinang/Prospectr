@@ -2,7 +2,6 @@ require 'ostruct'
 
 class HomeController < ApplicationController
   def index
-
   end
 
   def linked_in_search
@@ -14,14 +13,11 @@ class HomeController < ApplicationController
     end
 
     google_query = '"' + @description + '" "at '+ @query +'" -inurl:/dir/ -inurl:/find/ -inurl:/updates site:linkedin.com'
-
     logger.info "Google Query : #{google_query}"
 
     @results = Google::Search::Web.new(query: google_query).collect do |result|
       result
     end
-
-    @results = @results.in_groups_of(10).first
 
     respond_to do |format|
       format.json { render json: @results.to_json }
@@ -35,8 +31,6 @@ class HomeController < ApplicationController
     @results = Google::Search::News.new(query: google_query).collect do |result|
       result
     end
-
-    @results = @results.in_groups_of(10).first
 
     respond_to do |format|
       format.json { render json: @results.to_json }
@@ -56,10 +50,19 @@ class HomeController < ApplicationController
     Twitter.connection_options = {:timeout => 30, :open_timeout => 2}
 
     @screen_name = params[:screen_name]
-    @tweets = Twitter.user_timeline(@screen_name)
+
+    begin
+      @tweets = Twitter.user_timeline(@screen_name)
+    rescue Twitter::Error::Unauthorized
+      @error = "Tweets are not made public. Please visit Twitter to find out more."
+    end
 
     respond_to do |format|
-      format.json { render json: @tweets.to_json }
+      if @error
+        format.json { render json: {error: @error}, :status => 403 }
+      else
+        format.json { render json: @tweets.to_json }
+      end
     end
   end
 
@@ -82,6 +85,4 @@ class HomeController < ApplicationController
       format.json { render json: @results.to_json }
     end
   end
-
-
 end

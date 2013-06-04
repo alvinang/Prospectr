@@ -1,0 +1,15 @@
+<h4 class="text-center alert alert-info"><%= title %></h4>
+<div ng-hide="<%= loaded %>" class="text-center">
+  <%= render :partial => 'home/google/result_loading' %>
+</div>
+<div class="media-object" ng-repeat="result in <%= results %>" ng-show="<%= loaded %>">
+  <%= render :partial => 'home/google/result_entry' %>
+</div>
+
+<div ng-show="<%= loaded %>">
+  <pagination class="pagination-centered"
+              direction-links="false"
+              num-pages="<%= num_of_pages %>"
+              current-page="<%= current_page  %>">
+  </pagination>
+</div>

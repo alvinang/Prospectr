@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree ./angularjs/
+//= require_tree ./underscore/
 //= require twitter/bootstrap
+//= require angular-ui-bootstrap-tpls
 //= require turbolinks
 //= require_tree .
