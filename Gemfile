@@ -26,9 +26,6 @@ gem 'google-search'
 gem 'twitter'
 gem 'nokogiri'
 
-gem 'sprockets-rails'
-gem 'angular-ui-bootstrap-rails'
-
 group :doc do
   gem 'sdoc', require: false
 end
