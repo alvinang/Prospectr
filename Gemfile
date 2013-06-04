@@ -18,13 +18,15 @@ gem 'rspec-rails'
 gem 'binding_of_caller'
 #gem "coffee-script-redux-debugger", :git => "git://github.com/JetBrains/coffee-script-redux-debugger.git"
 
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'master'
 gem 'angularjs_scaffold'
 
 gem 'mechanize'
 gem 'google-search'
 gem 'twitter'
 gem 'nokogiri'
+
+gem 'sprockets-rails', github: 'rails/sprockets-rails'
 
 group :doc do
   gem 'sdoc', require: false
