@@ -26,6 +26,8 @@ gem 'google-search'
 gem 'twitter'
 gem 'nokogiri'
 
+gem 'sprockets-rails', github: 'rails/sprockets-rails'
+
 group :doc do
   gem 'sdoc', require: false
 end
