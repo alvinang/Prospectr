@@ -1,6 +1,7 @@
 require 'ostruct'
 
 class HomeController < ApplicationController
+
   def index
   end
 
@@ -39,10 +40,12 @@ class HomeController < ApplicationController
 
   def twitter_search
     @query = params[:query]
-    @users = Twitter.user_search(@query, lang: "en")
+    @users = twitter_client.user_search @query
+
+    logger.debug @users
 
     respond_to do |format|
-      format.json { render json: @users.to_json }
+      format.json { render json: @users }
     end
   end
 
@@ -84,5 +87,11 @@ class HomeController < ApplicationController
     respond_to do |format|
       format.json { render json: @results.to_json }
     end
+  end
+
+  private
+
+  def twitter_client
+    @twitter_client ||= Prospector::TwitterCachingClient.new
   end
 end
