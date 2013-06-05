@@ -50,12 +50,10 @@ class HomeController < ApplicationController
   end
 
   def twitter_timeline_search
-    Twitter.connection_options = {:timeout => 30, :open_timeout => 2}
-
     @screen_name = params[:screen_name]
 
     begin
-      @tweets = Twitter.user_timeline(@screen_name)
+      @tweets = twitter_client.user_timeline(@screen_name)
     rescue Twitter::Error::Unauthorized
       @error = "Tweets are not made public. Please visit Twitter to find out more."
     end
@@ -64,7 +62,7 @@ class HomeController < ApplicationController
       if @error
         format.json { render json: {error: @error}, :status => 403 }
       else
-        format.json { render json: @tweets.to_json }
+        format.json { render json: @tweets }
       end
     end
   end

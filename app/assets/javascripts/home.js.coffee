@@ -36,8 +36,6 @@ HomeCtrl = ($scope, $http) ->
     $scope.screen_names = {}
 
     for result in results
-      console.log result.screen_name
-      console.log result.toString
       $scope.initialize_screen_name(result.screen_name)
     for result in results
       $scope.timeline(result.screen_name)

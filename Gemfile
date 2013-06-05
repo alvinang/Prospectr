@@ -27,6 +27,7 @@ gem 'twitter'
 gem 'nokogiri'
 
 gem 'sprockets-rails'
+gem 'puma'
 
 group :doc do
   gem 'sdoc', require: false
