@@ -1,5 +1,5 @@
 module Prospector
   class TwitterCachingClient
-    include Prospector::Twitter::UserSearch
+    include Prospector::UserSearch
   end
 end
