@@ -37,7 +37,7 @@ module Prospector
     end
 
     def store_in_cache(email, response)
-      mail = VerifiedEmails.find_or_initialize query: query
+      mail = VerifiedEmails.find_or_initialize query: email
       mail.query = email
       mail.response = response.to_json
       mail.save
