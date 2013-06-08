@@ -6,6 +6,7 @@ Prospector::Application.routes.draw do
   get "home/twitter_search"
   get "home/twitter_timeline_search"
   get "home/email_format_search"
+  get "home/email_verifier"
 
   root to: "home#index"
 

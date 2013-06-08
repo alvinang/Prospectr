@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130605070200) do
+ActiveRecord::Schema.define(version: 20130608023647) do
+
+  create_table "email_verifiers", force: true do |t|
+    t.string   "query"
+    t.text     "response"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "twitter_user_searches", force: true do |t|
     t.string   "query"
@@ -30,5 +37,12 @@ ActiveRecord::Schema.define(version: 20130605070200) do
   end
 
   add_index "twitter_user_timelines", ["query"], name: "index_twitter_user_timelines_on_query", unique: true, using: :btree
+
+  create_table "verified_emails", force: true do |t|
+    t.string   "query"
+    t.text     "response"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

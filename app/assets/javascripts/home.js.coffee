@@ -11,6 +11,26 @@ HomeCtrl = ($scope, $http) ->
   $scope.googleNewsFeedResultsLoaded = true
   $scope.emailFormatSearchResultsLoaded = true
 
+  $scope.email = ''
+  $scope.valid = "ban-circle"
+
+  $scope.verify_email = ->
+
+    $scope.email_verifier_loading = true
+
+    check_validity = $http(
+      url: "/home/email_verifier?email=" + $scope.email
+      method: "GET"
+    )
+
+    check_validity.success (data, status, headers, config) ->
+      $scope.valid = "ok"
+      $scope.email_verifier_loading = false
+
+    check_validity.error (data, status, headers, config) ->
+      $scope.valid = "ban-circle"
+      $scope.email_verifier_loading = false
+
   $scope.timeline = (screen_name) ->
     timeline_call = $http(
       url: "/home/twitter_timeline_search?screen_name=" + screen_name

@@ -87,7 +87,32 @@ class HomeController < ApplicationController
     end
   end
 
+  def email_verifier
+    @email = params[:email]
+
+    result = email_verifier_client.valid? @email
+
+    if result
+      @valid = result['valid']
+    else
+      @valid = false
+    end
+
+    respond_to do |format|
+      if @valid
+        format.json { render json: {}, :status => 200 }
+      else
+        format.json { render json: {}, :status => 404 }
+      end
+
+    end
+  end
+
   private
+
+  def email_verifier_client
+    @email_verifier ||= Prospector::EmailVerifier.new
+  end
 
   def twitter_client
     @twitter_client ||= Prospector::TwitterCachingClient.new

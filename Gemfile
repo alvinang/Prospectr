@@ -25,8 +25,14 @@ gem 'mechanize'
 gem 'google-search'
 gem 'twitter'
 gem 'nokogiri'
+gem 'mail'
+gem 'email_veracity_checker'
 
 gem 'sprockets-rails'
+
+group :development do
+  gem 'puma'
+end
 
 group :doc do
   gem 'sdoc', require: false
