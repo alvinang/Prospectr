@@ -1,14 +1,8 @@
-<form class="form-horizontal">
-  <div class="control-group">
-    <label class="control-label" for="emailAddress">Email Address</label>
-    <div class="controls">
-      <input type="text" id="emailAddress" placeholder="jeff@amazon.com" ng-model="email" ng-change="verify_email()">
-       <span ng-hide="email_verifier_loading">
+<label class="control-label" for="emailAddress">Email Address</label>
+<input type="text" id="emailAddress" placeholder="jeff@amazon.com" ng-model="email" ng-change="verify_email()">
+<span ng-hide="email_verifier_loading">
          <i class="icon-{{valid}}"></i>
        </span>
-       <span ng-show="email_verifier_loading">
+<span ng-show="email_verifier_loading">
         <%= image_tag 'preloader-w8-cycle-black.gif', height: "12px", width: "12px" %>
        </span>
-    </div>
-  </div>
-</form>

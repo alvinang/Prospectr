@@ -14,12 +14,7 @@ class HomeController < ApplicationController
       @description = params[:description]
     end
 
-    google_query = '"' + @description + '" "at '+ @query +'" -inurl:/dir/ -inurl:/find/ -inurl:/updates site:linkedin.com'
-    logger.info "Google Query : #{google_query}"
-
-    @results = Google::Search::Web.new(query: google_query).collect do |result|
-      result
-    end
+    @results = google_search_client.linked_in @query, @description
 
     respond_to do |format|
       format.json { render json: @results.to_json }
@@ -28,11 +23,8 @@ class HomeController < ApplicationController
 
   def google_news_feed
     @query = params[:query]
-    google_query = "\"#{@query}\""
 
-    @results = Google::Search::News.new(query: google_query).collect do |result|
-      result
-    end
+    @results = google_search_client.google_news @query
 
     respond_to do |format|
       format.json { render json: @results.to_json }
@@ -117,5 +109,9 @@ class HomeController < ApplicationController
 
   def twitter_client
     @twitter_client ||= Prospector::TwitterCachingClient.new
+  end
+
+  def google_search_client
+    @google_search_client ||= Prospector::GoogleSearch.new
   end
 end
