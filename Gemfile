@@ -18,7 +18,7 @@ gem 'rspec-rails'
 gem 'binding_of_caller'
 #gem "coffee-script-redux-debugger", :git => "git://github.com/JetBrains/coffee-script-redux-debugger.git"
 
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', '~> 2.2.7'
 gem 'angularjs_scaffold'
 
 gem 'mechanize'
@@ -27,6 +27,10 @@ gem 'twitter'
 gem 'nokogiri'
 gem 'mail'
 gem 'email_veracity_checker'
+
+#for devise
+gem 'protected_attributes'
+gem 'devise'
 
 gem 'sprockets-rails'
 

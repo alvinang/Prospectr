@@ -1,4 +1,5 @@
 Prospector::Application.routes.draw do
+  devise_for :users
   get "welcome/index"
   get "home/index"
   get "home/linked_in_search"

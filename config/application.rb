@@ -27,5 +27,6 @@ module Prospector
 
     config.autoload_paths += %W(#{config.root}/lib)
     config.gem 'email_veracity_checker', :lib => "email_check"
+    config.filter_parameters += [:password, :password_confirmation]
   end
 end
