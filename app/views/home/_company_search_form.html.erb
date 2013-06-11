@@ -1,25 +1,10 @@
-<form class="form-horizontal">
-  <div class="control-group">
-    <label class="control-label" for="company">Company</label>
-    <div class="controls">
-      <input type="text" id="company" ng-model="company">
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label" for="jobTitle">Job Title</label>
-    <div class="controls">
-      <input type="text" id="jobTitle" ng-model="job_title">
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label" for="name">Name</label>
-    <div class="controls">
-      <input type="text" id="name" placeholder="{{name}}">
-    </div>
-  </div>
-  <div class="control-group">
-    <div class="controls">
-      <button type="submit" class="btn btn-primary" ng-click="search()">Search</button>
-    </div>
-  </div>
+<form class="form-inline well clearfix text-center">
+  <label class="control-label" for="company">Company</label>
+  <input type="text" id="company" ng-model="company">
+  <label class="control-label" for="jobTitle">Job Title</label>
+  <input type="text" id="jobTitle" ng-model="job_title">
+  <label class="control-label" for="name">Name</label>
+  <input type="text" id="name" placeholder="{{name}}">
+  <%= render :partial => 'email_address_verification_form' %>
+  <button type="submit" class="btn btn-primary" ng-click="search()">Search</button>
 </form>

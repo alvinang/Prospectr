@@ -1,53 +1,49 @@
 <div ng-controller="HomeCtrl">
-  <div class="row-fluid">
-    <div class="well clearfix">
-      <div class="span6">
-        <%= render :partial => 'company_search_form' %>
-      </div>
-      <div class="span6">
-        <%= render :partial => 'email_address_verification_form' %>
-      </div>
-    </div>
+  <div class="row-fluid prospector-search">
+    <%= render :partial => 'company_search_form' %>
   </div>
 
   <div class="row-fluid">
-    <div class="span4">
-      <%= render :partial => 'home/google/result_widget',
-                 locals: {
-                    loaded: 'linkedInResultsLoaded',
-                    results: 'linkedInResults  | pagination:linkedInFeedResultsPageSize:linkedInFeedResultsCurrentPage',
-                    title: 'LinkedIn',
-                    num_of_pages: 'linkedInFeedResultsPages',
-                    current_page: 'linkedInFeedResultsCurrentPage'
-                 } %>
-    </div>
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#linkedin">LinkedIn</a></li>
+      <li><a data-toggle="tab" href="#googleNews">Google News</a></li>
+      <li><a data-toggle="tab" href="#twitter">Twitter Feeds</a></li>
+      <li><a data-toggle="tab" href="#emailFormat">Email Format</a></li>
+    </ul>
 
-    <div class="span4">
-      <%= render :partial => 'home/google/result_widget',
-                 locals: {
-                    loaded: 'googleNewsFeedResultsLoaded',
-                    results: 'googleNewsFeedResults | pagination:googleNewsFeedResultsPageSize:googleNewsFeedResultsCurrentPage',
-                    title: 'Google News',
-                    num_of_pages: 'googleNewsFeedResultsPages',
-                    current_page: 'googleNewsFeedResultsCurrentPage'
-                 } %>
-    </div>
-
-    <div class="span4">
-      <%= render :partial => 'twitter_feeds' %>
-    </div>
-
-  </div>
-  <div class="row-fluid">
-    <div class="span4">
-      <h4 class="text-center alert alert-info">Email Format</h4>
-      <div ng-hide="emailFormatSearchResultsLoaded" class="text-center">
-        <%= render :partial => 'home/google/result_loading' %>
+    <div class="tab-content">
+      <div class="tab-pane active" id="linkedin">
+        <%= render :partial => 'home/google/result_widget',
+                   locals: {
+                           loaded: 'linkedInResultsLoaded',
+                           results: 'linkedInResults  | pagination:linkedInFeedResultsPageSize:linkedInFeedResultsCurrentPage',
+                           title: 'LinkedIn',
+                           num_of_pages: 'linkedInFeedResultsPages',
+                           current_page: 'linkedInFeedResultsCurrentPage'
+                   } %>
       </div>
-      <div ng-show="emailFormatSearchResultsLoaded">
-        <ul class="unstyled">
-          <li ng-repeat="result in emailFormatSearchResults">{{result}}</li>
-        </ul>
+      <div class="tab-pane" id="googleNews">
+        <%= render :partial => 'home/google/result_widget',
+                   locals: {
+                           loaded: 'googleNewsFeedResultsLoaded',
+                           results: 'googleNewsFeedResults | pagination:googleNewsFeedResultsPageSize:googleNewsFeedResultsCurrentPage',
+                           title: 'Google News',
+                           num_of_pages: 'googleNewsFeedResultsPages',
+                           current_page: 'googleNewsFeedResultsCurrentPage'
+                   } %>
+      </div>
+      <div class="tab-pane" id="twitter">
+        <%= render :partial => 'twitter_feeds' %>
+      </div>
+      <div class="tab-pane" id="emailFormat">
+        <div ng-hide="emailFormatSearchResultsLoaded" class="text-center">
+          <%= render :partial => 'home/google/result_loading' %>
+        </div>
+        <div ng-show="emailFormatSearchResultsLoaded">
+          <ul class="unstyled">
+            <li ng-repeat="result in emailFormatSearchResults">{{result}}</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
