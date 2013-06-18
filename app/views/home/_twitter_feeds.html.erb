@@ -1,7 +1,7 @@
-<div ng-hide="twitterSearchResultsLoaded" class="text-center">
+<div ng-hide="twitterResults.loaded" class="text-center">
   <%= render :partial => 'home/google/result_loading' %>
 </div>
-<div ng-show="twitterSearchResultsLoaded" ng-repeat="result in twitterSearchResults">
+<div ng-show="twitterResults.loaded" ng-repeat="result in twitterResults.data">
   <div class="accordion" id="{{result.screen_name}}">
     <div class="accordion-group">
       <div class="accordion-heading">

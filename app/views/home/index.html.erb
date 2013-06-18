@@ -14,34 +14,22 @@
     <div class="tab-content">
       <div class="tab-pane active" id="linkedin">
         <%= render :partial => 'home/google/result_widget',
-                   locals: {
-                           loaded: 'linkedInResultsLoaded',
-                           results: 'linkedInResults  | pagination:linkedInFeedResultsPageSize:linkedInFeedResultsCurrentPage',
-                           title: 'LinkedIn',
-                           num_of_pages: 'linkedInFeedResultsPages',
-                           current_page: 'linkedInFeedResultsCurrentPage'
-                   } %>
+                   locals: { results: 'linkedInResults' } %>
       </div>
       <div class="tab-pane" id="googleNews">
         <%= render :partial => 'home/google/result_widget',
-                   locals: {
-                           loaded: 'googleNewsFeedResultsLoaded',
-                           results: 'googleNewsFeedResults | pagination:googleNewsFeedResultsPageSize:googleNewsFeedResultsCurrentPage',
-                           title: 'Google News',
-                           num_of_pages: 'googleNewsFeedResultsPages',
-                           current_page: 'googleNewsFeedResultsCurrentPage'
-                   } %>
+                   locals: { results: 'googleNewsResults' } %>
       </div>
       <div class="tab-pane" id="twitter">
         <%= render :partial => 'twitter_feeds' %>
       </div>
       <div class="tab-pane" id="emailFormat">
-        <div ng-hide="emailFormatSearchResultsLoaded" class="text-center">
+        <div ng-hide="emailFormatResults.loaded" class="text-center">
           <%= render :partial => 'home/google/result_loading' %>
         </div>
-        <div ng-show="emailFormatSearchResultsLoaded">
+        <div ng-show="emailFormatResults.loaded">
           <ul class="unstyled">
-            <li ng-repeat="result in emailFormatSearchResults">{{result}}</li>
+            <li ng-repeat="result in emailFormatResults.data">{{result}}</li>
           </ul>
         </div>
       </div>

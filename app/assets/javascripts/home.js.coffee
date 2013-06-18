@@ -6,10 +6,11 @@ HomeCtrl = ($scope, $http) ->
   $scope.job_title = ""
   $scope.name = ""
   $scope.results = []
-  $scope.twitterSearchResultsLoaded = true
-  $scope.linkedInResultsLoaded = true
-  $scope.googleNewsFeedResultsLoaded = true
-  $scope.emailFormatSearchResultsLoaded = true
+
+  $scope.twitterResults = new SearchResult('Twitter')
+  $scope.linkedInResults = new SearchResult('LinkedIn')
+  $scope.googleNewsResults = new SearchResult('GoogleNews')
+  $scope.emailFormatResults = new SearchResult('EmailFormat')
 
   $scope.email = ''
   $scope.valid = "ban-circle"
@@ -61,46 +62,36 @@ HomeCtrl = ($scope, $http) ->
       $scope.timeline(result.screen_name)
 
   $scope.search = ->
-    $scope.twitterSearchResultsLoaded = false
-    $scope.linkedInResultsLoaded = false
-    $scope.googleNewsFeedResultsLoaded = false
-    $scope.emailFormatSearchResultsLoaded = false
+    $scope.twitterResults.loading()
+    $scope.linkedInResults.loading()
+    $scope.googleNewsResults.loading()
+    $scope.emailFormatResults.loading()
 
     $http(
       url: "/home/linked_in_search?query=" + $scope.company + '&description=' + $scope.job_title
       method: "GET"
     ).success (data, status, headers, config) ->
-      $scope.linkedInResults = data
-      $scope.linkedInFeedResultsPages = 6
-      $scope.linkedInFeedResultsPageSize = 10
-      $scope.linkedInFeedResultsCurrentPage = 1
-      $scope.linkedInResultsLoaded = true
+      $scope.linkedInResults.update(data)
 
     $http(
       url: "/home/google_news_feed?query=" + $scope.company
       method: "GET"
     ).success (data, status, headers, config) ->
-      $scope.googleNewsFeedResults = data
-      $scope.googleNewsFeedResultsPages = 6
-      $scope.googleNewsFeedResultsPageSize = 10
-      $scope.googleNewsFeedResultsCurrentPage = 1
-      $scope.googleNewsFeedResultsLoaded = true
+      $scope.googleNewsResults.update(data)
 
     $http(
       url: "/home/twitter_search?query=" + $scope.company
       method: "GET"
     ).success (data, status, headers, config) ->
       $scope.fetch_timelines(data)
-      $scope.twitterSearchResults = data
-      $scope.twitterSearchResultsLoaded = true
+      $scope.twitterResults.update(data)
 
 
     $http(
       url: "/home/email_format_search?query=" + $scope.company
       method: "GET"
     ).success (data, status, headers, config) ->
-      $scope.emailFormatSearchResults = data
-      $scope.emailFormatSearchResultsLoaded = true
+      $scope.emailFormatResults.update(data)
 
 
 HomeCtrl.$inject = ['$scope', "$http"];

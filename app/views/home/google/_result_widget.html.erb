@@ -1,14 +1,16 @@
-<div ng-hide="<%= loaded %>" class="text-center">
+<div ng-hide="<%= "#{results}.loaded" %>" class="text-center">
   <%= render :partial => 'home/google/result_loading' %>
 </div>
-<div class="media-object" ng-repeat="result in <%= results %>" ng-show="<%= loaded %>">
+<div class="media-object"
+     ng-repeat="<%= "result in #{results}.data | pagination:#{results}.perPage:#{results}.currentPageNumber" %>"
+     ng-show="<%= "#{results}.loaded" %>">
   <%= render :partial => 'home/google/result_entry' %>
 </div>
 
-<div ng-show="<%= loaded %>">
+<div ng-show="<%= "#{results}.loaded" %>">
   <pagination class="pagination-centered"
               direction-links="false"
-              num-pages="<%= num_of_pages %>"
-              current-page="<%= current_page  %>">
+              num-pages="<%= "#{results}.pages" %>"
+              current-page="<%= "#{results}.currentPageNumber"  %>">
   </pagination>
 </div>
