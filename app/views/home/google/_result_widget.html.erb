@@ -1,16 +1,30 @@
-<div ng-hide="<%= "#{results}.loaded" %>" class="text-center">
-  <%= render :partial => 'home/google/result_loading' %>
-</div>
-<div class="media-object"
-     ng-repeat="<%= "result in #{results}.data | pagination:#{results}.perPage:#{results}.currentPageNumber" %>"
-     ng-show="<%= "#{results}.loaded" %>">
-  <%= render :partial => 'home/google/result_entry' %>
+<div class="row-fluid">
+  <div class="span6">
+    <div ng-hide="<%= "#{results}.loaded" %>" class="text-center">
+      <%= render :partial => 'home/google/result_loading' %>
+    </div>
+    <div class="media-object"
+         ng-repeat="<%= "result in #{results}.data | pagination:#{results}.perPage:#{results}.doubleCurrentPage()" %>"
+         ng-show="<%= "#{results}.loaded" %>">
+      <%= render :partial => 'home/google/result_entry' %>
+    </div>
+  </div>
+  <div class="span6">
+    <div ng-hide="<%= "#{results}.loaded" %>" class="text-center">
+      <%= render :partial => 'home/google/result_loading' %>
+    </div>
+    <div class="media-object"
+         ng-repeat="<%= "result in #{results}.data | pagination:#{results}.perPage:#{results}.doubleNextPage()" %>"
+         ng-show="<%= "#{results}.loaded" %>">
+      <%= render :partial => 'home/google/result_entry' %>
+    </div>
+  </div>
 </div>
 
 <div ng-show="<%= "#{results}.loaded" %>">
   <pagination class="pagination-centered"
               direction-links="false"
-              num-pages="<%= "#{results}.pages" %>"
-              current-page="<%= "#{results}.currentPageNumber"  %>">
+              num-pages="<%= "#{results}.doublePages" %>"
+              current-page="<%= "#{results}.currentPageNumber" %>">
   </pagination>
 </div>

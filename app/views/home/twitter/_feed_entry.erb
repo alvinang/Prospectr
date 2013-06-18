@@ -1,0 +1,21 @@
+<div class="accordion" id="{{result.screen_name}}">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#{{result.screen_name}}" href="#{{result.screen_name}}_collapse">
+        <%= render :partial => 'home/twitter/banner' %>
+      </a>
+    </div>
+    <div id="{{result.screen_name}}_collapse" class="accordion-body collapse in">
+      <table class="table table-striped table-hover">
+        <tr ng-show="screen_names[result.screen_name] | tweetError">
+          <td><i class="icon-comment text-error"></i></td>
+          <td>{{screen_names[result.screen_name].data.error}}</td>
+        </tr>
+        <tr ng-hide="screen_names[result.screen_name] | tweetError" ng-repeat="tweet in screen_names[result.screen_name].data">
+          <td><i class="icon-comment text-info"></i></td>
+          <td><p ng-bind-html-unsafe="tweet.text"></p></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
