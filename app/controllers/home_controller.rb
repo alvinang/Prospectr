@@ -1,19 +1,13 @@
 require 'ostruct'
 
 class HomeController < ApplicationController
-  before_filter :authenticate_user!
+
+  before_action :parse_params
 
   def index
   end
 
   def linked_in_search
-    @query = params[:query]
-    @description = ""
-
-    if params[:description].present?
-      @description = params[:description]
-    end
-
     @results = google_search_client.linked_in @query, @description
 
     respond_to do |format|
@@ -24,7 +18,17 @@ class HomeController < ApplicationController
   def google_news_feed
     @query = params[:query]
 
-    @results = google_search_client.google_news @query
+    @results = google_search_client.google_news @query, @description, @name
+
+    respond_to do |format|
+      format.json { render json: @results.to_json }
+    end
+  end
+
+  def google_search
+    @query = params[:query]
+
+    @results = google_search_client.search @query
 
     respond_to do |format|
       format.json { render json: @results.to_json }
@@ -102,6 +106,24 @@ class HomeController < ApplicationController
   end
 
   private
+
+  def parse_params
+    @query = ""
+    @description = ""
+    @name = ""
+
+    if params[:query].present?
+      @description = params[:query]
+    end
+
+    if params[:description].present?
+      @description = params[:description]
+    end
+
+    if params[:name].present?
+      @name = params[:name]
+    end
+  end
 
   def email_verifier_client
     @email_verifier ||= Prospector::EmailVerifier.new

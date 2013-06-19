@@ -4,7 +4,6 @@
   <label class="control-label" for="jobTitle">Job Title</label>
   <input type="text" id="jobTitle" ng-model="job_title">
   <label class="control-label" for="name">Name</label>
-  <input type="text" id="name" placeholder="{{name}}">
-  <%= render :partial => 'email_address_verification_form' %>
-  <button type="submit" class="btn btn-primary" ng-click="search()">Search</button>
+  <input type="text" id="name" ng-model="name">
+  <button type="submit" class="btn btn-primary" ng-click="search()"><i class="icon-search"></i></button>
 </form>

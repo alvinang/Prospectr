@@ -15,6 +15,6 @@
 //= require_tree ./angularjs/
 //= require_tree ./underscore/
 //= require twitter/bootstrap
-//= require angular-ui/bootstrap-tpls-0.3.0
+//= require_tree ./angular-ui/
 //= require turbolinks
 //= require_tree .

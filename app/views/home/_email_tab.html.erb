@@ -1,0 +1,39 @@
+<div class="row-fluid">
+  <div class="span6">
+    <h3 class="muted">Search email-format.com for domain
+      <input class="input-large" type="text" ng-model="emailFormatSearchQuery" ui-keydown="{'enter':'searchEmailFormat($event)'}">
+    </h3>
+
+    <div ng-hide="emailFormatResults.loaded" class="text-center">
+      <%= render :partial => 'home/google/result_loading' %>
+    </div>
+
+    <div ng-show="emailFormatResults.loaded">
+      <table class="table table-hover table-striped">
+        <tr ng-repeat="result in emailFormatResults.data">
+          <td>{{result}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="span6">
+    <h3 class="muted">Search mailtester.com for email
+      <input class="input-large"
+             type="text"
+             ng-model="mailTesterQuery"
+             ui-keydown="{'enter':'searchMailTester($event)'}">
+
+    </h3>
+
+    <h3>
+      <div ng-hide="mailTesterResults.loaded" class="text-center">
+        <br />
+        <%= image_tag 'progress-indeterminate-light.gif', class: 'pull-left' %>
+      </div>
+      <div ng-show="mailTesterResults.loaded">
+        <i class="{{mailTesterResults.data.icon}}"></i>
+        <span class="{{mailTesterResults.data.textColor}}">{{mailTesterResults.data.message}}</span>
+      </div>
+    </h3>
+  </div>
+</div>

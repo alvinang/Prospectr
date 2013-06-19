@@ -4,11 +4,12 @@
   </div>
 
   <div class="row-fluid">
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs nav-pills">
       <li class="active"><a data-toggle="tab" href="#linkedin">LinkedIn</a></li>
       <li><a data-toggle="tab" href="#googleNews">Google News</a></li>
+      <li><a data-toggle="tab" href="#googleSearch">Google Search</a></li>
       <li><a data-toggle="tab" href="#twitter">Twitter Feeds</a></li>
-      <li><a data-toggle="tab" href="#emailFormat">Email Format</a></li>
+      <li><a data-toggle="tab" href="#emailFormat">Email</a></li>
     </ul>
 
     <div class="result-pane">
@@ -21,18 +22,18 @@
           <%= render :partial => 'home/google/result_widget',
                      locals: {results: 'googleNewsResults'} %>
         </div>
+        <div class="tab-pane" id="googleSearch">
+          <h3 class="muted">Search <span class="text-info">G</span><span class="text-error">o</span><span class="text-warning">o</span><span class="text-info">g</span><span class="text-success">l</span><span class="text-error">e</span> for
+            <input class="input-large" type="text" ng-model="googleSearchQuery" ui-keydown="{'enter':'searchGoogle($event)'}">
+          </h3>
+          <%= render :partial => 'home/google/result_widget',
+                     locals: {results: 'googleSearchResults'} %>
+        </div>
         <div class="tab-pane" id="twitter">
           <%= render :partial => 'twitter_feeds' %>
         </div>
         <div class="tab-pane" id="emailFormat">
-          <div ng-hide="emailFormatResults.loaded" class="text-center">
-            <%= render :partial => 'home/google/result_loading' %>
-          </div>
-          <div ng-show="emailFormatResults.loaded">
-            <ul class="unstyled">
-              <li ng-repeat="result in emailFormatResults.data">{{result}}</li>
-            </ul>
-          </div>
+          <%= render :partial => 'email_tab' %>
         </div>
       </div>
     </div>

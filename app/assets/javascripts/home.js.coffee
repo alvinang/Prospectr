@@ -6,31 +6,29 @@ HomeCtrl = ($scope, $http) ->
   $scope.job_title = ""
   $scope.name = ""
   $scope.results = []
+  $scope.mailTesterQuery = ''
 
   $scope.twitterResults = new SearchResult('Twitter')
   $scope.linkedInResults = new SearchResult('LinkedIn')
   $scope.googleNewsResults = new SearchResult('GoogleNews')
   $scope.emailFormatResults = new SearchResult('EmailFormat')
+  $scope.mailTesterResults = new SearchResult('MailTester')
+  $scope.googleSearchResults = new SearchResult('GoogleSearch')
 
-  $scope.email = ''
-  $scope.valid = "ban-circle"
 
-  $scope.verify_email = ->
-
-    $scope.email_verifier_loading = true
+  $scope.searchMailTester = ->
+    $scope.mailTesterResults.loading()
 
     check_validity = $http(
-      url: "/home/email_verifier?email=" + $scope.email
+      url: "/home/email_verifier?email=" + $scope.mailTesterQuery
       method: "GET"
     )
 
     check_validity.success (data, status, headers, config) ->
-      $scope.valid = "ok"
-      $scope.email_verifier_loading = false
+      $scope.mailTesterResults.update({icon: 'icon-ok', message: 'Email is valid', textColor: 'text-success'})
 
     check_validity.error (data, status, headers, config) ->
-      $scope.valid = "ban-circle"
-      $scope.email_verifier_loading = false
+      $scope.mailTesterResults.update({icon: 'icon-ban-circle', message: 'Email is not valid', textColor: 'text-error'})
 
   $scope.timeline = (screen_name) ->
     timeline_call = $http(
@@ -61,6 +59,25 @@ HomeCtrl = ($scope, $http) ->
     for result in results
       $scope.timeline(result.screen_name)
 
+  $scope.searchEmailFormat = ->
+    $scope.emailFormatResults.loading()
+
+    $http(
+      url: "/home/email_format_search?query=" + $scope.emailFormatSearchQuery
+      method: "GET"
+    ).success (data, status, headers, config) ->
+      $scope.emailFormatResults.update(data)
+
+  $scope.searchGoogle = ->
+    $scope.googleSearchResults.loading()
+
+    $http(
+      url: "/home/google_search?query=" + $scope.googleSearchQuery
+      method: "GET"
+    ).success (data, status, headers, config) ->
+      $scope.googleSearchResults.update(data)
+
+
   $scope.search = ->
     $scope.twitterResults.loading()
     $scope.linkedInResults.loading()
@@ -68,13 +85,15 @@ HomeCtrl = ($scope, $http) ->
     $scope.emailFormatResults.loading()
 
     $http(
-      url: "/home/linked_in_search?query=" + $scope.company + '&description=' + $scope.job_title
+      url: "/home/linked_in_search?query=" + $scope.company + '&description=' + $scope.job_title + '&name=' + $scope.name
       method: "GET"
     ).success (data, status, headers, config) ->
       $scope.linkedInResults.update(data)
 
+
+
     $http(
-      url: "/home/google_news_feed?query=" + $scope.company
+      url: "/home/google_news_feed?query=" + $scope.company + '&description=' + $scope.job_title + '&name=' + $scope.name
       method: "GET"
     ).success (data, status, headers, config) ->
       $scope.googleNewsResults.update(data)

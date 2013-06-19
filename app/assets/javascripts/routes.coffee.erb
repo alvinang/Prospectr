@@ -1,7 +1,7 @@
 root = global ? window
 angular = root.angular
 
-thisApp = angular.module("ProspectorClient", ['ngCookies', 'ui.bootstrap', 'prospectorFilters']).config(['$routeProvider', '$locationProvider' ,
+thisApp = angular.module("ProspectorClient", ['ngCookies', 'ui.bootstrap', 'ui.utils', 'prospectorFilters']).config(['$routeProvider', '$locationProvider' ,
 ($routeProvider, $locationProvider) ->
   #$locationProvider.hashPrefix('');
 #  $locationProvider.html5Mode true
