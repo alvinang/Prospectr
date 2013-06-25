@@ -113,7 +113,7 @@ class HomeController < ApplicationController
     @name = ""
 
     if params[:query].present?
-      @description = params[:query]
+      @query = params[:query]
     end
 
     if params[:description].present?
