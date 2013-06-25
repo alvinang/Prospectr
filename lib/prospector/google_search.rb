@@ -2,7 +2,7 @@ module Prospector
   class GoogleSearch
 
     def linked_in(query, company)
-      google_query = "\"#{query}\" \"at #{company}\""
+      google_query = "\"#{query}\" \"at #{company}\" -inurl:/dir/ -inurl:/find/ -inurl:/updates site:linkedin.com"
       search(google_query)
     end
 
