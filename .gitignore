@@ -20,3 +20,5 @@
 .idea
 *.iml
 Gemfile.lock
+
+/config/database.yml
