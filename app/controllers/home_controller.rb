@@ -2,6 +2,7 @@ require 'ostruct'
 
 class HomeController < ApplicationController
 
+  before_filter :authenticate_user!
   before_action :parse_params
 
   def index
