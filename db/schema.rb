@@ -13,13 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20130611051256) do
 
-  create_table "email_verifiers", force: true do |t|
-    t.string   "query"
-    t.text     "response"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "twitter_user_searches", force: true do |t|
     t.string   "query"
     t.text     "result",     limit: 16777215
