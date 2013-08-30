@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   end
 
   def linked_in_search
-    @results = google_search_client.linked_in @query, @description
+    @results = google_search_client.linked_in @query, @description, @name
 
     respond_to do |format|
       format.json { render json: @results.to_json }
