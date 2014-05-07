@@ -12,10 +12,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
-
-gem 'better_errors'
 gem 'rspec-rails'
-gem 'binding_of_caller'
 #gem "coffee-script-redux-debugger", :git => "git://github.com/JetBrains/coffee-script-redux-debugger.git"
 
 gem 'twitter-bootstrap-rails', '~> 2.2.8'
@@ -31,11 +28,13 @@ gem 'email_veracity_checker'
 #for devise
 gem 'protected_attributes'
 gem 'devise'
-
 gem 'sprockets-rails'
 
-group :development do
+group :development, :test do
   gem 'puma'
+  gem 'quiet_assets'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :doc do
