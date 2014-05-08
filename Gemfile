@@ -17,6 +17,7 @@ gem 'rspec-rails'
 
 gem 'twitter-bootstrap-rails', '~> 2.2.8'
 gem 'angularjs_scaffold'
+gem 'figaro'
 
 gem 'mechanize'
 gem 'google-search'
@@ -35,6 +36,13 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'better_errors'
   gem 'binding_of_caller'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+  gem 'thin'
+  gem 'newrelic_rpm'
 end
 
 group :doc do

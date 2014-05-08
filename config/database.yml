@@ -30,10 +30,9 @@ test:
   socket: /tmp/mysql.sock
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  database: david_prospector
+  adapter: postgresql
+  encoding: unicode
+  database: prospectr_production
   pool: 5
-  username: david_rails
-  password: kwanleong
-  socket: /tmp/mysql.sock
+  username: prospectr
+  password:
