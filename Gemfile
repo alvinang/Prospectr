@@ -33,7 +33,7 @@ gem 'devise'
 gem 'sprockets-rails'
 
 group :development, :test do
-  gem 'puma'
+  gem 'puma', '>= 4.3.8'
   gem 'quiet_assets'
   gem 'better_errors'
   gem 'binding_of_caller'
