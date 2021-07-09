@@ -47,6 +47,6 @@ group :production do
 end
 
 group :doc do
-  gem 'sdoc', require: false
+  gem 'sdoc', '>= 1.0.0', require: false
 end
 
