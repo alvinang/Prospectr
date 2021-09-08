@@ -20,10 +20,10 @@ gem 'twitter-bootstrap-rails', '~> 2.2.8'
 gem 'angularjs_scaffold'
 gem 'figaro'
 
-gem 'mechanize'
+gem 'mechanize', '>= 2.7.2'
 gem 'google-search'
 gem 'twitter'
-gem 'nokogiri'
+gem 'nokogiri', '>= 1.8.2'
 gem 'mail'
 gem 'email_veracity_checker'
 
@@ -35,7 +35,7 @@ gem 'sprockets-rails'
 group :development, :test do
   gem 'puma'
   gem 'quiet_assets'
-  gem 'better_errors'
+  gem 'better_errors', '>= 2.8.0'
   gem 'binding_of_caller'
 end
 
