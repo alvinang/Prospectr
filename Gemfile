@@ -1,16 +1,16 @@
 source 'https://rubygems.org'
 
 ruby '2.1.1'
-gem 'rails'
+gem 'rails', '>= 5.0.0'
 
 gem 'mysql2'
 
-gem 'sass-rails'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'sass-rails', '>= 5.0.5'
+gem 'coffee-rails', '~> 4.1.1'
 gem 'less-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'therubyracer', platforms: :ruby
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 4.0.1'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
 gem 'rspec-rails'
@@ -18,7 +18,7 @@ gem 'rspec-rails'
 
 gem 'twitter-bootstrap-rails', '~> 2.2.8'
 gem 'angularjs_scaffold'
-gem 'figaro'
+gem 'figaro', '>= 1.0.0'
 
 gem 'mechanize'
 gem 'google-search'
@@ -29,11 +29,11 @@ gem 'email_veracity_checker'
 
 #for devise
 gem 'protected_attributes'
-gem 'devise'
-gem 'sprockets-rails'
+gem 'devise', '>= 4.0.0'
+gem 'sprockets-rails', '>= 2.2.0'
 
 group :development, :test do
-  gem 'puma'
+  gem 'puma', '>= 2.12.0'
   gem 'quiet_assets'
   gem 'better_errors'
   gem 'binding_of_caller'
