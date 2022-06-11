@@ -20,7 +20,7 @@ gem 'twitter-bootstrap-rails', '~> 2.2.8'
 gem 'angularjs_scaffold'
 gem 'figaro'
 
-gem 'mechanize'
+gem 'mechanize', '>= 2.8.5'
 gem 'google-search'
 gem 'twitter'
 gem 'nokogiri'
