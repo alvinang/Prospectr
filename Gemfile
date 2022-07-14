@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.1.1'
-gem 'rails'
+gem 'rails', '>= 5.2.8.1'
 
 gem 'mysql2'
 
@@ -18,7 +18,7 @@ gem 'rspec-rails'
 
 gem 'twitter-bootstrap-rails', '~> 2.2.8'
 gem 'angularjs_scaffold'
-gem 'figaro'
+gem 'figaro', '>= 1.0.0'
 
 gem 'mechanize'
 gem 'google-search'
