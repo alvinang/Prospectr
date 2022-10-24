@@ -6,7 +6,7 @@ gem 'rails'
 gem 'mysql2'
 
 gem 'sass-rails'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.1'
 gem 'less-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'therubyracer', platforms: :ruby
@@ -33,7 +33,7 @@ gem 'devise'
 gem 'sprockets-rails'
 
 group :development, :test do
-  gem 'puma'
+  gem 'puma', '>= 2.12.0'
   gem 'quiet_assets'
   gem 'better_errors'
   gem 'binding_of_caller'
