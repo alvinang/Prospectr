@@ -23,7 +23,7 @@ gem 'figaro'
 gem 'mechanize'
 gem 'google-search'
 gem 'twitter'
-gem 'nokogiri'
+gem 'nokogiri', '>= 1.10.5'
 gem 'mail'
 gem 'email_veracity_checker'
 
