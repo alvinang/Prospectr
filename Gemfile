@@ -1,24 +1,24 @@
 source 'https://rubygems.org'
 
 ruby '2.1.1'
-gem 'rails'
+gem 'rails', '>= 6.1.7.3'
 
 gem 'mysql2'
 
-gem 'sass-rails'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'sass-rails', '>= 5.0.8'
+gem 'coffee-rails', '~> 4.2.2'
 gem 'less-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'therubyracer', platforms: :ruby
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 4.0.1'
 gem 'turbolinks'
-gem 'jbuilder', '~> 1.0.1'
+gem 'jbuilder', '~> 1.0.2'
 gem 'rspec-rails'
 #gem "coffee-script-redux-debugger", :git => "git://github.com/JetBrains/coffee-script-redux-debugger.git"
 
 gem 'twitter-bootstrap-rails', '~> 2.2.8'
 gem 'angularjs_scaffold'
-gem 'figaro'
+gem 'figaro', '>= 1.0.0'
 
 gem 'mechanize'
 gem 'google-search'
@@ -29,7 +29,7 @@ gem 'email_veracity_checker'
 
 #for devise
 gem 'protected_attributes'
-gem 'devise'
+gem 'devise', '>= 4.7.0'
 gem 'sprockets-rails'
 
 group :development, :test do
