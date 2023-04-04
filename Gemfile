@@ -1,41 +1,41 @@
 source 'https://rubygems.org'
 
 ruby '2.1.1'
-gem 'rails'
+gem 'rails', '>= 6.1.7.3'
 
 gem 'mysql2'
 
-gem 'sass-rails'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'sass-rails', '>= 6.0.0'
+gem 'coffee-rails', '~> 4.2.2'
 gem 'less-rails'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier', '>= 2.7.2'
 gem 'therubyracer', platforms: :ruby
-gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jbuilder', '~> 1.0.1'
+gem 'jquery-rails', '>= 4.4.0'
+gem 'turbolinks', '>= 5.0.0'
+gem 'jbuilder', '~> 1.0.2'
 gem 'rspec-rails'
 #gem "coffee-script-redux-debugger", :git => "git://github.com/JetBrains/coffee-script-redux-debugger.git"
 
-gem 'twitter-bootstrap-rails', '~> 2.2.8'
+gem 'twitter-bootstrap-rails', '~> 3.2.0'
 gem 'angularjs_scaffold'
-gem 'figaro'
+gem 'figaro', '>= 1.0.0'
 
-gem 'mechanize'
+gem 'mechanize', '>= 2.8.5'
 gem 'google-search'
-gem 'twitter'
-gem 'nokogiri'
-gem 'mail'
+gem 'twitter', '>= 6.0.0'
+gem 'nokogiri', '>= 1.13.9'
+gem 'mail', '>= 2.5.5'
 gem 'email_veracity_checker'
 
 #for devise
 gem 'protected_attributes'
-gem 'devise'
-gem 'sprockets-rails'
+gem 'devise', '>= 4.7.1'
+gem 'sprockets-rails', '>= 3.0.0'
 
 group :development, :test do
-  gem 'puma'
+  gem 'puma', '>= 4.3.12'
   gem 'quiet_assets'
-  gem 'better_errors'
+  gem 'better_errors', '>= 2.8.0'
   gem 'binding_of_caller'
 end
 
@@ -47,6 +47,6 @@ group :production do
 end
 
 group :doc do
-  gem 'sdoc', require: false
+  gem 'sdoc', '>= 1.0.0', require: false
 end
 
