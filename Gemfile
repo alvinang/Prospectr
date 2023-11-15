@@ -20,10 +20,10 @@ gem 'twitter-bootstrap-rails', '~> 2.2.8'
 gem 'angularjs_scaffold'
 gem 'figaro'
 
-gem 'mechanize'
+gem 'mechanize', '>= 2.7.3'
 gem 'google-search'
 gem 'twitter'
-gem 'nokogiri'
+gem 'nokogiri', '>= 1.11.4'
 gem 'mail'
 gem 'email_veracity_checker'
 
