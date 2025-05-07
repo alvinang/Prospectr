@@ -13,7 +13,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
-gem 'rspec-rails'
+gem 'rspec-rails', '>= 8.0.0'
 #gem "coffee-script-redux-debugger", :git => "git://github.com/JetBrains/coffee-script-redux-debugger.git"
 
 gem 'twitter-bootstrap-rails', '~> 2.2.8'
