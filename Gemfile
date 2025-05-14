@@ -1,24 +1,24 @@
 source 'https://rubygems.org'
 
 ruby '2.1.1'
-gem 'rails'
+gem 'rails', '>= 7.0.0'
 
 gem 'mysql2'
 
-gem 'sass-rails'
+gem 'sass-rails', '>= 6.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'less-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
-gem 'turbolinks'
+gem 'turbolinks', '>= 5.0.0'
 gem 'jbuilder', '~> 1.0.1'
 gem 'rspec-rails'
 #gem "coffee-script-redux-debugger", :git => "git://github.com/JetBrains/coffee-script-redux-debugger.git"
 
-gem 'twitter-bootstrap-rails', '~> 2.2.8'
+gem 'twitter-bootstrap-rails', '~> 3.2.2'
 gem 'angularjs_scaffold'
-gem 'figaro'
+gem 'figaro', '>= 1.0.0'
 
 gem 'mechanize'
 gem 'google-search'
@@ -33,7 +33,7 @@ gem 'devise'
 gem 'sprockets-rails'
 
 group :development, :test do
-  gem 'puma'
+  gem 'puma', '>= 2.12.0'
   gem 'quiet_assets'
   gem 'better_errors'
   gem 'binding_of_caller'
