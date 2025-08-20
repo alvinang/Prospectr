@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.1.1'
-gem 'rails'
+gem 'rails', '>= 7.1.5.2'
 
 gem 'mysql2'
 
@@ -16,9 +16,9 @@ gem 'jbuilder', '~> 1.0.1'
 gem 'rspec-rails'
 #gem "coffee-script-redux-debugger", :git => "git://github.com/JetBrains/coffee-script-redux-debugger.git"
 
-gem 'twitter-bootstrap-rails', '~> 2.2.8'
+gem 'twitter-bootstrap-rails', '~> 3.2.2'
 gem 'angularjs_scaffold'
-gem 'figaro'
+gem 'figaro', '>= 1.0.0'
 
 gem 'mechanize'
 gem 'google-search'
